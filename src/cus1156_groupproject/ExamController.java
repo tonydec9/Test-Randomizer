@@ -14,8 +14,9 @@ public class ExamController {
 		this.themodel = themodel;
 		
 		
-		this.theView.addExamListener(new ExamListener ());
-
+		this.theView.TakeExamListener(new ExamListener ());
+		this.theView.QuestionListener(new ExamListener ());
+		
 	}
 	
 	class ExamListener implements ActionListener{
@@ -34,7 +35,7 @@ public class ExamController {
 			 catch(NumberFormatException ex){
 
 				 System.out.println(ex);
-				 theView.displayErrorMessage("You Need to fill-in a question and three answers");				
+				 theView.displayErrorMessage("You need to fill-in a question and three answers");				
 }	
 }		
 }	
