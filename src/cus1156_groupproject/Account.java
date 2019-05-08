@@ -42,8 +42,7 @@ public class Account {
 	public void setDateofBirth(Date dateofbirth) {
 		this.dateofbirth = dateofbirth;
 	}
-	
-	
+
 	
 	
 	//Professor class
