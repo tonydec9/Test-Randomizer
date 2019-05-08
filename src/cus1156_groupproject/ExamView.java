@@ -83,8 +83,6 @@ public String getPassword() {
 }
 
 
-
-
 //button codes
 void TakeExamListener(ActionListener listenForTakeExamButton){
          
