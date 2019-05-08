@@ -12,5 +12,7 @@ public class MVCExam {
 	
 		 theView.setVisible(true);
 
+		 
+		 
 }
 }
