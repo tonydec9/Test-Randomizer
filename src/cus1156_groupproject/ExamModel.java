@@ -56,7 +56,7 @@ public class ExamModel{
 			pw.println("C)"+questions.get(i-1).answer3+"\n\n");
 		}
 		
-		System.out.println("Exam.txt has been created.")
+		System.out.println("Exam.txt has been created.");
 		System.out.println(fw);
 		
 		pw.close();

@@ -14,6 +14,8 @@ public class ExamView extends JFrame{
 	private JLabel passLabel = new JLabel("Password: ");
 	private JTextField password = new JTextField(10);
 
+	private JButton Login = new JButton("Login");
+
 	
 //professor panel fields
     private JTextField question1  = new JTextField(10);
@@ -101,22 +103,29 @@ public String getPassword() {
 
 
 //button codes
-void TakeExamListener(ActionListener listenForTakeExamButton){
+
+
+void LoginListener(ActionListener listenerForLoginButton){
+	Exam.addActionListener(listenerForLoginButton);
+} 
+
+void TakeExamListener(ActionListener listenerForTakeExamButton){
          
-        TakeExam.addActionListener(listenForTakeExamButton);
+        TakeExam.addActionListener(listenerForTakeExamButton);
 
 }
 
-void QuestionListener(ActionListener listenForQuestionButton){
+void QuestionListener(ActionListener listenerForQuestionButton){
     
-    Question.addActionListener(listenForQuestionButton);
+    Question.addActionListener(listenerForQuestionButton);
 
 }
 
-void PrintExamListener(ActionListener listenForPrintExamButton){
-	Exam.addActionListener(listenForPrintExamButton);
+void PrintExamListener(ActionListener listenerForPrintExamButton){
+	Exam.addActionListener(listenerForPrintExamButton);
 }
-    
+
+ 
 
 
 //error message
