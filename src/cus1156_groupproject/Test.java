@@ -12,3 +12,4 @@ public class Test extends ExamController {
 		theView.setVisible(true);
 		
 	}
+}
