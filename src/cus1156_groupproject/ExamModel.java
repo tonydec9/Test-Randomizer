@@ -7,6 +7,7 @@ public class ExamModel{
 	
 	private FileWriter fw;
 	private PrintWriter pw;
+	private Question q;
 	private ArrayList<Question> questions;
 	private questionCount;
 	
@@ -22,7 +23,6 @@ public class ExamModel{
 		}
 	}
 	
-	}
 	
 	public void createExam(String name){
 		try
@@ -37,12 +37,13 @@ public class ExamModel{
 	}
 	
 	public void addQuestion(String question, String answer1, String answer2, String answer3){
-		questions = new Question<ArrayList>(question, answer1, answer2, answer3);
+		q = new Question(question, answer1, answer2, answer3);
+		questions.add(q);
 	}
 	
 	public void randomize(){
 		for(int i = 0; i < questions.size(); i++){
-			Question.randomizeAnswers(questions(i));
+			Question.randomizeAnswers(questions.get(i));
 		}
 	}
 	
@@ -50,9 +51,9 @@ public class ExamModel{
 		questionCount = 1;
 		for(int i = 1; i <= questions.size; i++){
 			pw.print("Question "+questionCount+":\n");
-			pw.println("A)"+questions(i-1).answer1);
-			pw.println("B)"+questions(i-1).answer2);
-			pw.println("C)"+questions(i-1).answer3+"\n\n");
+			pw.println("A)"+questions.get(i-1).answer1);
+			pw.println("B)"+questions.get(i-1).answer2);
+			pw.println("C)"+questions.get(i-1).answer3+"\n\n");
 		}
 	}
 }
@@ -63,8 +64,8 @@ class Question {
 	public String answer1, answer2, answer3;
 	public int placeholder1;
 	public int placeholder2;
-	public int randomNum;
-	public String temp1, temp2, temp3;
+	public static int randomNum;
+	public static String temp1, temp2, temp3;
 	
 	Question(){
 		question = "n/a";
@@ -94,5 +95,4 @@ class Question {
 			}
 		}
 	}
-
 }
