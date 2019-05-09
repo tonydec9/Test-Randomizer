@@ -41,7 +41,7 @@ class ExamListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-	tring question1, answer1, answer2, answer3;
+	String question1, answer1, answer2, answer3;
 			
 			try {
 				question1 = theView.getQuestion1();
