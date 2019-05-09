@@ -7,7 +7,7 @@ public class ExamModel{
 	
 	private FileWriter fw;
 	private PrintWriter pw;
-	private Question questions;
+	private ArrayList<Question> questions;
 	private questionCount;
 	
 	public String verifyUser(String user, String pass){
@@ -37,27 +37,28 @@ public class ExamModel{
 	}
 	
 	public void addQuestion(String question, String answer1, String answer2, String answer3){
-		questions = new Question(question, answer1, answer2, answer3);
+		questions = new Question<ArrayList>(question, answer1, answer2, answer3);
 	}
 	
 	public void randomize(){
-		Question.randomizeAnswers(questions);
+		for(int i = 0; i < questions.size(); i++){
+			Question.randomizeAnswers(questions(i));
+		}
 	}
 	
 	public void printExam(){
 		questionCount = 1;
-		for(Question i : questions){
+		for(int i = 1; i <= questions.size; i++){
 			pw.print("Question "+questionCount+":\n");
-			pw.println("A)"+questions.answer1);
-			pw.println("B)"+questions.answer2);
-			pw.println("C)"+questions.answer3+"\n\n");
+			pw.println("A)"+questions(i-1).answer1);
+			pw.println("B)"+questions(i-1).answer2);
+			pw.println("C)"+questions(i-1).answer3+"\n\n");
 		}
 	}
 }
 
 class Question {
 	
-	ArrayList<Question> exam = new ArrayList<Question>();
 	public String question;
 	public String answer1, answer2, answer3;
 	public int placeholder1;
