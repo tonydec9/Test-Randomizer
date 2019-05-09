@@ -9,8 +9,6 @@ public class MVCMain {
 		
 		ExamController ExamController = new ExamController(theView,theModel);
 		  
-		theView.setVisible(true);
-		
-		   
+		theView.setVisible(true);  
 	 }
 }

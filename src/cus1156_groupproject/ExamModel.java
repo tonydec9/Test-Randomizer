@@ -23,7 +23,6 @@ public class ExamModel{
 		}
 	}
 	
-	
 	public void createExam(String name){
 		try
 		{
