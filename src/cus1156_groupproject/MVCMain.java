@@ -7,10 +7,10 @@ public class MVCMain {
 		  
 		ExamModel theModel = new ExamModel();
 		
-		ExamController theController = new ExamController(theView,theModel);
+		ExamController ExamController = new ExamController(theView,theModel);
 		  
 		theView.setVisible(true);
 		
-		      
+		   
 	 }
 }

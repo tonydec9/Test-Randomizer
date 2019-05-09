@@ -14,10 +14,29 @@ public class ExamController {
 		this.theView = theView;
 		this.theModel = theModel;
 		
+		this.theView.LoginListener(new LoginListener());
 		this.theView.TakeExamListener(new TakeExamListener ());
 		this.theView.QuestionListener(new QuestionListener ());
 		this.theView.PrintExamListener(new PrintExamListener ());
 		
+	}
+//login button attempt	
+	class LoginListener implements ActionListener{
+		
+		@Override
+		public void actionPerformed(ActionEvent h) {
+				
+			String username, password;
+				try {
+						username = theView.getUsername();
+						password = theView.getPassword();
+				}
+				catch (NumberFormatException hh) {
+					System.out.println(hh);
+					 theView.displayErrorMessage("Error");	
+					
+				}
+			}
 	}
 	
 	 class QuestionListener implements ActionListener{
