@@ -41,26 +41,7 @@ public class ExamView extends JFrame{
 	  
 	   this.add(loginPanel);
 
-	   JPanel professorPanel = new JPanel();
-	   
-	   this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	   
-	   professorPanel.add(question1);
-	   professorPanel.add(answer1);
-	   professorPanel.add(answer2);
-	   professorPanel.add(answer3);
-	   professorPanel.add(Question);
-	   professorPanel.add(Exam);
-	   
-	   this.setSize(1000, 1000);
-	   this.add(professorPanel);
-	   
-	   JPanel studentPanel = new JPanel();
-	   
-	   this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	   
-	   studentPanel.add(TakeExam);
-	   this.add(studentPanel); 	
+
    }
    
   //getters 
@@ -91,7 +72,7 @@ public String getPassword() {
 //button codes
 
 void LoginListener(ActionListener listenerForLoginButton){
-	Exam.addActionListener(listenerForLoginButton);
+	Login.addActionListener(listenerForLoginButton);
 } 
 
 void TakeExamListener(ActionListener listenerForTakeExamButton){
