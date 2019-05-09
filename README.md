@@ -1,10 +1,7 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
 
-### What is this repository for? ###
-
-Requirements Document: Exam Generator
+### Requirements Document: Exam Generator ###
 
 The exam generator will give the rights to the professor and
 student to access an exam. The professor and student will each
