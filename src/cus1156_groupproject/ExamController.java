@@ -20,8 +20,20 @@ public class ExamController {
 		this.theView.QuestionListener(new ExamListener ());
 		
 	}
+	class QuestionListener implements ActionListener
 	
-	class ExamListener implements ActionListener{
+	@Override
+	public void actionPerformed(ActionEvent d) {
+		
+		String question1, answer1, answer2, answer3;
+		
+		try {
+			theModel.addQuestion(question1, answer1, answer2, answer3);
+			
+		}
+		
+	
+	class ExamListener implements ActionListener
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -37,7 +49,9 @@ public class ExamController {
 			 catch(NumberFormatException ex){
 
 				 System.out.println(ex);
-				 theView.displayErrorMessage("You need to fill-in a question and three answers");				
+				 theView.displayErrorMessage("You need to fill-in a question and three answers");		
+	
+		
 }	
 }		
 		
