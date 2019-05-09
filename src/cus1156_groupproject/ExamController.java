@@ -7,41 +7,26 @@ import javax.swing.JTextField;
 public class ExamController {
 
 	private ExamView theView;
-	private ExamModel themodel;
-	private Type usertype;	
+	private ExamModel theModel;	
 	
-	public ExamController (ExamView theView, ExamModel themodel) {
+	public ExamController (ExamView theView, ExamModel theModel) {
 		
 		this.theView = theView;
-		this.themodel = themodel;
+		this.theModel = theModel;
 		
 		
-		this.theView.TakeExamListener(new ExamListener ());
-		this.theView.QuestionListener(new ExamListener ());
+		this.theView.TakeExamListener(new TakeExamListener ());
+		this.theView.QuestionListener(new QuestionListener ());
+		this.theView.PrintExamListener(new PrintExamListener ());
 		
 	}
 	
-	
-class QuestionListener implements ActionListener{
-	
-	@Override
-	public void actionPerformed(ActionEvent d) {
-		
-		String question1, answer1, answer2, answer3;
-		
-		try {
-			theModel.addQuestion(question1, answer1, answer2, answer3);
-		}
-	}
-}
-		
-	
-class ExamListener implements ActionListener{
+	 class QuestionListener implements ActionListener{
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
+		@Override
+		public void actionPerformed(ActionEvent e) {
 		
-	String question1, answer1, answer2, answer3;
+			String question1, answer1, answer2, answer3;
 			
 			try {
 				question1 = theView.getQuestion1();
@@ -52,8 +37,51 @@ class ExamListener implements ActionListener{
 			 catch(NumberFormatException ex){
 
 				 System.out.println(ex);
-				 theView.displayErrorMessage("You need to fill-in a question and three answers");		
-			 }
+				 theView.displayErrorMessage("You need to fill-in a question and three answers");				
+}	
+			
+	class TakeExamListener implements ActionListener{
+			
+		@Override
+		public void actionPerformed(ActionEvent f) {
+				
+				try {
+						theModel.printExam();
+				}
+				catch (NumberFormatException exc) {
+					System.out.println(exc);
+					 theView.displayErrorMessage("Error");	
+					
+				}
+			}
+			
+		class PrintExamListener implements ActionListener{
+			
+			@Override
+			public void actionPerformed(ActionEvent f) {
+					
+					try {
+							theModel.printExam();
+					}
+					catch (NumberFormatException exce) {
+						
+						
+					}
+						System.out.println(exce);
+						
+						 theView.displayErrorMessage("Error");	
+						
+					}
+				}	
+		
+		
+		
+		
 		}
-	}
+			
+			
+}		
+}
+	
+	
 }
