@@ -5,6 +5,8 @@ import javax.swing.*;
 
 public class ExamView extends JFrame{
 	
+
+	
 //login panel fields
 	private JTextField username = new JTextField(10);
 	private JTextField password = new JTextField(10);
@@ -58,6 +60,9 @@ public class ExamView extends JFrame{
    
   //getters
    
+public String getLogin() {
+	return usertype.toString();
+}
 public String getQuestion1() {
 	return  question1.toString();
 }

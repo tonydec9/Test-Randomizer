@@ -1,4 +1,5 @@
 package cus1156_groupproject;
+import java.awt.Window.Type;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JTextField;
@@ -7,6 +8,7 @@ public class ExamController {
 
 	private ExamView theView;
 	private ExamModel themodel;
+	private Type usertype;	
 	
 	public ExamController (ExamView theView, ExamModel themodel) {
 		
@@ -38,5 +40,9 @@ public class ExamController {
 				 theView.displayErrorMessage("You need to fill-in a question and three answers");				
 }	
 }		
+		
+		
+		
+		
 }	
 }
