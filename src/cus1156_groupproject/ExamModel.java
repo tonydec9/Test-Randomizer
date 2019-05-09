@@ -44,13 +44,13 @@ public class ExamModel{
 		Question.randomizeAnswers(questions);
 	}
 	
-	public void publish(){
+	public void printExam(){
 		questionCount = 1;
 		for(Question i : questions){
 			pw.print("Question "+questionCount+":\n");
-			pw.print("A)"+questions.answer1);
-			pw.print("B)"+questions.answer2);
-			pw.println("C)"+questions.answer3);
+			pw.println("A)"+questions.answer1);
+			pw.println("B)"+questions.answer2);
+			pw.println("C)"+questions.answer3+"\n\n");
 		}
 	}
 }
