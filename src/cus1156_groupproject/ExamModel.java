@@ -9,7 +9,7 @@ public class ExamModel{
 	private PrintWriter pw;
 	private Question q;
 	private ArrayList<Question> questions;
-	private questionCount;
+	private int questionCount;
 	
 	public String verifyUser(String user, String pass){
 		if(user.equals("professor") && pass.equals("teachersonly")){
@@ -49,7 +49,7 @@ public class ExamModel{
 	
 	public void printExam(){
 		questionCount = 1;
-		for(int i = 1; i <= questions.size; i++){
+		for(int i = 1; i <= questions.size(); i++){
 			pw.print("Question "+questionCount+":\n");
 			pw.println("A)"+questions.get(i-1).answer1);
 			pw.println("B)"+questions.get(i-1).answer2);
@@ -81,7 +81,7 @@ class Question {
 		this.answer3 = answer3;
 	}
 	
-	public void randomizeAnswers(Question q){
+	public static void randomizeAnswers(Question q){
 		for(int i = 1; i <= 3; i++){
 			randomNum = (int) Math.ceil(Math.random() * 3);
 			while(randomNum != i){
