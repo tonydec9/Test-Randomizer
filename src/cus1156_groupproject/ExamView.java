@@ -9,15 +9,21 @@ public class ExamView extends JFrame{
 
 	
 //login panel fields
+	private JLabel userLabel = new JLabel("Username: ");
 	private JTextField username = new JTextField(10);
+	private JLabel passLabel = new JLabel("Password: ");
 	private JTextField password = new JTextField(10);
 
 	
 //professor panel fields
     private JTextField question1  = new JTextField(10);
+    private JLabel questionLabel = new JLabel("Question:");
     private JTextField answer1  = new JTextField(10);
+    private JLabel ans1Label = new JLabel("Answer 1: ");
     private JTextField answer2 = new JTextField(10);
+    private JLabel ans2Label = new JLabel("Answer 2: ");
     private JTextField answer3 = new JTextField(10);
+    private JLabel ans3Label = new JLabel("Answer 3: ");
  
     private JButton Question = new JButton("Add Question");
     private JButton Exam = new JButton("Print Exam");
@@ -32,6 +38,8 @@ public class ExamView extends JFrame{
 	   
 	   JPanel loginPanel = new JPanel();
 	   
+	   this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	   
 	   loginPanel.add(username);
 	   loginPanel.add(password);
 	  
@@ -42,19 +50,24 @@ public class ExamView extends JFrame{
 	   
 	   JPanel professorPanel = new JPanel();
 	   
+	   this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	   
 	   professorPanel.add(question1);
 	   professorPanel.add(answer1);
 	   professorPanel.add(answer2);
 	   professorPanel.add(answer3);
+	   professorPanel.add(Question);
+	   professorPanel.add(Exam);
 	   
 	   this.add(professorPanel);
 	   
 	   
-	   
-	   
 	   JPanel studentPanel = new JPanel();
 	   
+	   this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	   
 	   studentPanel.add(TakeExam);
+	   this.add(studentPanel);
 		   
 	   	
    }
