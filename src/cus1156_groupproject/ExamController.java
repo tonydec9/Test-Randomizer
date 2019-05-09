@@ -38,6 +38,8 @@ public class ExamController {
 				 System.out.println(ex);
 				 theView.displayErrorMessage("You need to fill-in a question and three answers");				
 }	
+		}
+	 }
 			
 	class TakeExamListener implements ActionListener{
 			
@@ -53,22 +55,19 @@ public class ExamController {
 					
 				}
 			}
-			
+	}
 		class PrintExamListener implements ActionListener{
 			
 			@Override
-			public void actionPerformed(ActionEvent f) {
+			public void actionPerformed(ActionEvent g) {
 					
 					try {
 							theModel.printExam();
 					}
-					catch (NumberFormatException exce) {
-						
-						
-					}
-						System.out.println(exce);
-						
-						 theView.displayErrorMessage("Error");	
+					catch (NumberFormatException exx) {
+				
+						System.out.println(exx);
+						theView.displayErrorMessage("Error");	
 						
 					}
 				}	
@@ -78,9 +77,5 @@ public class ExamController {
 		
 		}
 			
-			
-}		
-}
-	
-	
+				
 }
