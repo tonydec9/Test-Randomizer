@@ -9,6 +9,7 @@ public class ExamModel{
 	private PrintWriter pw;
 	private String userType;
 	private Question questions;
+	private questionCount;
 	
 	private void verifyUser(String user, String pass){
 		if(user.equals("professor") && pass.equals("teachersonly")){
@@ -40,6 +41,20 @@ public class ExamModel{
 	
 	public void addQuestion(String question, String answer1, String answer2, String answer3){
 		questions = new Question(question, answer1, answer2, answer3);
+	}
+	
+	public void randomize(){
+		Question.randomizeAnswers(questions);
+	}
+	
+	public void publish(){
+		questionCount = 1;
+		for(Question i : questions){
+			pw.print("Question "+questionCount+":\n");
+			pw.print("A)"+questions.answer1);
+			pw.print("B)"+questions.answer2);
+			pw.println("C)"+questions.answer3);
+		}
 	}
 }
 
