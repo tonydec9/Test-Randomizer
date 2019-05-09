@@ -1,14 +1,37 @@
 package cus1156_groupproject;
 
 import java.io.*;
+import java.util.ArrayList;
 
-class ExamModel {
+public class ExamModel{
 	
-	FileWriter fw;
+	private FileWriter fw;
+	private PrintWriter pw;
+	private String userType;
+	private Question questions;
+	
+	private void verifyUser(String user, String pass){
+		if(user.equals("professor") && pass.equals("teachersonly")){
+			userType = "professor";
+		}
+		else if(user.equals("student") && pass.equals("12345")){
+			userType = "student";
+		}
+		else{
+			userType = null;
+		}
+	}
+	
+	public String getLogin(){ 
+		return userType;
+	}
 	
 	public void createExam(String name){
-		try{
+		try
+		{
 			fw = new FileWriter("Exam.txt");
+			pw = new PrintWriter(fw);
+			pw.println(name);
 		}
 		catch (IOException e){
 			System.out.println("Error");
@@ -16,16 +39,47 @@ class ExamModel {
 	}
 	
 	public void addQuestion(String question, String answer1, String answer2, String answer3){
-		try{
-			fw.write(question);
-			fw.write(answer1);
-			fw.write(answer2);
-			fw.write(answer3);
+		questions = new Question(question, answer1, answer2, answer3);
+	}
+}
+
+class Question {
+	
+	ArrayList<Question> exam = new ArrayList<Question>();
+	public String question;
+	public String answer1, answer2, answer3;
+	public int placeholder1;
+	public int placeholder2;
+	public int randomNum;
+	public String temp1, temp2, temp3;
+	
+	Question(){
+		question = "n/a";
+		answer1 = null;
+		answer2 = null;
+		answer3 = null;
+	}
+	
+	Question(String question, String answer1, String answer2, String answer3){
+		this.question = question;
+		this.answer1 = answer1;
+		this.answer2 = answer2;
+		this.answer3 = answer3;
+	}
+	
+	public void randomizeAnswers(Question q){
+		for(int i = 1; i <= 3; i++){
+			randomNum = (int) Math.ceil(Math.random() * 3);
+			while(randomNum != i){
+				temp1 = q.answer1;
+				temp2 = q.answer2;
+				temp3 = q.answer3;
+				
+				q.answer3 = temp1;
+				q.answer2 = temp3;
+				q.answer1 = temp2;
+			}
 		}
-		catch(IOException e){
-			System.out.println("error");
-		}
-		
 	}
 
 }
