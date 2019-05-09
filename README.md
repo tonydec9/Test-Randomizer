@@ -15,3 +15,10 @@ to post it, which will print it in a text document and print console.
 For the answers, the professor is also able to randomize their order.
 The student will be able to take exam which will print the exam onto
 text document and the console. 
+
+### Capabilities ###
+All users will have the option to login
+If invalid login credentials occur, an invalid login will occur.
+Professor (once logged in) enters Question and Answer String fields
+Students (once logged in) takes exam
+Both users can print exam, by either taking it or publishing it via student or professor, respectively
