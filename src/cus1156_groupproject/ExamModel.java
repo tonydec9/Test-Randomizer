@@ -58,6 +58,8 @@ public class ExamModel{
 		
 		System.out.println("Exam.txt has been created.")
 		System.out.println(fw);
+		
+		pw.close();
 	}
 }
 
