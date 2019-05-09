@@ -7,7 +7,7 @@ public class Test extends ExamController {
 		ExamView theView = new ExamView();
 		ExamModel theModel = new ExamModel();
 		
-		ExamController theController = new ExamController();
+		ExamController theController = new ExamController(theView, the Model);
 		
 		theView.setVisible(true);
 		
