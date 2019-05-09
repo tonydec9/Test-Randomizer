@@ -14,7 +14,6 @@ public class ExamController {
 		this.theView = theView;
 		this.theModel = theModel;
 		
-		
 		this.theView.TakeExamListener(new TakeExamListener ());
 		this.theView.QuestionListener(new QuestionListener ());
 		this.theView.PrintExamListener(new PrintExamListener ());
