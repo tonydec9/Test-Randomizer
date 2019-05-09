@@ -20,7 +20,9 @@ public class ExamController {
 		this.theView.QuestionListener(new ExamListener ());
 		
 	}
-	class QuestionListener implements ActionListener
+	
+	
+class QuestionListener implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent d) {
@@ -29,16 +31,17 @@ public class ExamController {
 		
 		try {
 			theModel.addQuestion(question1, answer1, answer2, answer3);
-			
 		}
+	}
+}
 		
 	
-	class ExamListener implements ActionListener
+class ExamListener implements ActionListener{
 
-		@Override
-		public void actionPerformed(ActionEvent e) {
+	@Override
+	public void actionPerformed(ActionEvent e) {
 		
-			String question1, answer1, answer2, answer3;
+	tring question1, answer1, answer2, answer3;
 			
 			try {
 				question1 = theView.getQuestion1();
@@ -50,13 +53,7 @@ public class ExamController {
 
 				 System.out.println(ex);
 				 theView.displayErrorMessage("You need to fill-in a question and three answers");		
-	
-		
-}	
-}		
-		
-		
-		
-		
-}	
+			 }
+		}
+	}
 }
