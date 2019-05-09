@@ -7,24 +7,21 @@ public class ExamModel{
 	
 	private FileWriter fw;
 	private PrintWriter pw;
-	private String userType;
 	private Question questions;
 	private questionCount;
 	
-	private void verifyUser(String user, String pass){
+	public String verifyUser(String user, String pass){
 		if(user.equals("professor") && pass.equals("teachersonly")){
-			userType = "professor";
+			return "professor";
 		}
 		else if(user.equals("student") && pass.equals("12345")){
-			userType = "student";
+			return "student";
 		}
 		else{
-			userType = null;
+			return null;
 		}
 	}
 	
-	public String getLogin(){ 
-		return userType;
 	}
 	
 	public void createExam(String name){
