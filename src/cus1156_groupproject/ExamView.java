@@ -1,4 +1,3 @@
-package cus1156_groupproject;
 
 import java.awt.event.ActionListener;
 import javax.swing.*;
@@ -19,6 +18,7 @@ public class ExamView extends JFrame{
     private JTextField answer3 = new JTextField(10);
  
     private JButton Question = new JButton("Add Question");
+    private JButton Exam = new JButton("Print Exam");
     
     
     
@@ -60,9 +60,6 @@ public class ExamView extends JFrame{
    
   //getters
    
-public String getLogin() {
-	return usertype.toString();
-}
 public String getQuestion1() {
 	return  question1.toString();
 }
@@ -99,6 +96,10 @@ void QuestionListener(ActionListener listenForQuestionButton){
     
     Question.addActionListener(listenForQuestionButton);
 
+}
+
+void PrintExamListener(ActionListener listenForPrintExamButton){
+	Exam.addActionListener(listenForPrintExamButton);
 }
     
 
