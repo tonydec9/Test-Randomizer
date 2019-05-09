@@ -34,6 +34,7 @@ public class ExamView extends JFrame{
 	   JPanel loginPanel = new JPanel();
 	   
 	   this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	   this.setSize(500, 500);
 	   
 	   loginPanel.add(username);
 	   loginPanel.add(password);
@@ -51,6 +52,7 @@ public class ExamView extends JFrame{
 	   professorPanel.add(Question);
 	   professorPanel.add(Exam);
 	   
+	   this.setSize(1000, 1000);
 	   this.add(professorPanel);
 	   
 	   JPanel studentPanel = new JPanel();
