@@ -1,48 +1,95 @@
 package cus1156_groupproject;
 
-
+import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class ExamView extends JFrame{
 	
 //login panel fields
-	private JLabel userLabel = new JLabel("Username: ");
-	private JTextField username = new JTextField(10);
-	private JLabel passLabel = new JLabel("Password: ");
-	private JTextField password = new JTextField(10);
-	private JButton Login = new JButton("Login");
+	public JLabel userLabel = new JLabel("Username: ");
+	public JTextField username = new JTextField(10);
+	public JLabel passLabel = new JLabel("Password: ");
+	public JTextField password = new JTextField(10);
+	public JButton Login = new JButton("Login");
+	public JLabel invalid = new JLabel("Invalid Entry");
+	
+	JPanel panel;
 
 //professor panel fields
-    private JTextField question1  = new JTextField(10);
-    private JLabel questionLabel = new JLabel("Question:");
-    private JTextField answer1  = new JTextField(10);
-    private JLabel ans1Label = new JLabel("Answer 1: ");
-    private JTextField answer2 = new JTextField(10);
-    private JLabel ans2Label = new JLabel("Answer 2: ");
-    private JTextField answer3 = new JTextField(10);
-    private JLabel ans3Label = new JLabel("Answer 3: ");
-    private JButton Question = new JButton("Add Question");
-    private JButton Exam = new JButton("Print Exam");
+    public JTextField question1  = new JTextField(10);
+    public JLabel questionLabel = new JLabel("Question:");
+    public JTextField answer1  = new JTextField(10);
+    public JLabel ans1Label = new JLabel("Answer 1: ");
+    public JTextField answer2 = new JTextField(10);
+    public JLabel ans2Label = new JLabel("Answer 2: ");
+    public JTextField answer3 = new JTextField(10);
+    public JLabel ans3Label = new JLabel("Answer 3: ");
+    public JButton Question = new JButton("Add Question");
+    public JButton Exam = new JButton("Print Exam");
+    
  
  //student panel fields
     
-    private JButton TakeExam =  new JButton("Take Exam");
+    public JLabel studentLabel = new JLabel("Exam will be printed in console and in Exam.txt file.");
+    public JButton TakeExam =  new JButton("Take Exam");
+    
 
    ExamView(){
 	   
-	   JPanel loginPanel = new JPanel();
+	   panel = new JPanel();
 	   
 	   this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	   this.setSize(500, 500);
+	   this.setSize(800, 100);
 	   
-	   loginPanel.add(username);
-	   loginPanel.add(password);
+	   panel.add(userLabel);
+	   panel.add(username);
+	   panel.add(passLabel);
+	   panel.add(password);
+	   panel.add(Login);
 	  
-	   this.add(loginPanel);
+	   this.add(panel);
 
 
    }
+   
+public void userType(String userType){
+		
+	if(userType.equals(null)){
+		panel.removeAll();
+		panel.repaint();
+		panel.add(invalid);
+		panel.revalidate();
+	}
+	else if(userType.equals("professor")){
+		panel.removeAll();
+		panel.repaint();
+		panel.add(questionLabel);
+		panel.add(question1);
+		panel.add(ans1Label);
+		panel.add(answer1);
+		panel.add(ans2Label);
+		panel.add(answer2);
+		panel.add(ans3Label);
+		panel.add(answer3);
+
+		panel.add(Question);
+		panel.add(Exam);
+		panel.revalidate();
+	}
+	
+	else if(userType.equals("student")){
+		panel.removeAll();
+		panel.repaint();
+		
+		panel.add(studentLabel);
+		panel.add(TakeExam);
+
+		panel.revalidate();
+	}
+	
+}
+
    
   //getters 
 public String getQuestion1() {

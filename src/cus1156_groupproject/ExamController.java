@@ -1,4 +1,5 @@
 package cus1156_groupproject;
+
 import java.awt.Window.Type;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,16 +27,13 @@ public class ExamController {
 		@Override
 		public void actionPerformed(ActionEvent h) {
 				
-			String username, password;
-				try {
-						username = theView.getUsername();
-						password = theView.getPassword();
-				}
-				catch (NumberFormatException hh) {
-					System.out.println(hh);
-					 theView.displayErrorMessage("Error");	
-					
-				}
+			String username, password, userType;
+					username = theView.getUsername();
+					password = theView.getPassword();
+					userType = theModel.verifyUser(username, password);
+						
+					theView.userType(userType);
+
 			}
 	}
 	
@@ -45,20 +43,15 @@ public class ExamController {
 		public void actionPerformed(ActionEvent e) {
 		
 			String question1, answer1, answer2, answer3;
-			
-			try {
+
 				question1 = theView.getQuestion1();
 				answer1 = theView.getAnswer1();
 				answer2 = theView.getAnswer2();
 				answer3 = theView.getAnswer3();
-			}
-			 catch(NumberFormatException ex){
-
-				 System.out.println(ex);
-				 theView.displayErrorMessage("You need to fill-in a question and three answers");
-			 }
+				theModel.addQuestion(question1, answer1, answer2, answer3);
 		}
 	 }
+		
 	class TakeExamListener implements ActionListener{
 			
 		@Override
