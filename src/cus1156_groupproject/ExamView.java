@@ -27,12 +27,16 @@ public class ExamView extends JFrame{
     public JLabel ans3Label = new JLabel("Answer 3: ");
     public JButton Question = new JButton("Add Question");
     public JButton Exam = new JButton("Print Exam");
+    public JButton Randomize = new JButton("Randomize Answers in Exam.txt");
     
  
  //student panel fields
     
-    public JLabel studentLabel = new JLabel("Exam will be printed in console and in Exam.txt file.");
+    public JLabel studentLabel = new JLabel("Click 'Take Exam' to print Exam to Exam.txt");
     public JButton TakeExam =  new JButton("Take Exam");
+    
+    
+    public JButton Logout = new JButton("Logout");
     
 
    ExamView(){
@@ -55,13 +59,14 @@ public class ExamView extends JFrame{
    
 public void userType(String userType){
 		
-	if(userType.equals(null)){
+	/*if(userType.equals(null)){
 		panel.removeAll();
 		panel.repaint();
 		panel.add(invalid);
 		panel.revalidate();
 	}
-	else if(userType.equals("professor")){
+	*/
+	if(userType.compareTo("professor") == 0){
 		panel.removeAll();
 		panel.repaint();
 		panel.add(questionLabel);
@@ -75,17 +80,38 @@ public void userType(String userType){
 
 		panel.add(Question);
 		panel.add(Exam);
+		panel.add(Randomize);
+		panel.add(Logout);
 		panel.revalidate();
 	}
 	
-	else if(userType.equals("student")){
+	else if(userType.compareTo("student") == 0){
 		panel.removeAll();
 		panel.repaint();
 		
 		panel.add(studentLabel);
 		panel.add(TakeExam);
+		panel.add(Logout);
 
 		panel.revalidate();
+	}
+	
+	else if(userType.compareTo("revert") == 0){
+		panel.removeAll();
+		panel.repaint();
+		
+		panel.add(userLabel);
+		panel.add(username);
+		panel.add(passLabel);
+		panel.add(password);
+		panel.add(Login);
+		
+		panel.revalidate();
+		
+	}
+	
+	else{
+		panel.add(invalid);
 	}
 	
 }
@@ -93,27 +119,27 @@ public void userType(String userType){
    
   //getters 
 public String getQuestion1() {
-	return  question1.toString();
+	return  question1.getText();
 }
 
 public String getAnswer1() {
-	return answer1.toString();
+	return answer1.getText();
 }
 
 public String getAnswer2() {
-	return answer2.toString();
+	return answer2.getText();
 }
 
 public String getAnswer3() {
-	return answer3.toString();
+	return answer3.getText();
 }
 
 public String getUsername() {
-	return username.toString();
+	return username.getText();
 }
 
 public String getPassword() {
-	return password.toString();
+	return password.getText();
 }
 
 //button codes
@@ -124,7 +150,7 @@ void LoginListener(ActionListener listenerForLoginButton){
 
 void TakeExamListener(ActionListener listenerForTakeExamButton){
          
-        TakeExam.addActionListener(listenerForTakeExamButton);
+    TakeExam.addActionListener(listenerForTakeExamButton);
 }
 
 void QuestionListener(ActionListener listenerForQuestionButton){
@@ -134,6 +160,14 @@ void QuestionListener(ActionListener listenerForQuestionButton){
 
 void PrintExamListener(ActionListener listenerForPrintExamButton){
 	Exam.addActionListener(listenerForPrintExamButton);
+}
+
+void RandomizeListener(ActionListener listenerForRandomizeButton){
+	Randomize.addActionListener(listenerForRandomizeButton);
+}
+
+void LogoutListener(ActionListener listenerForLogoutButton){
+	Logout.addActionListener(listenerForLogoutButton);
 }
 
 //error message

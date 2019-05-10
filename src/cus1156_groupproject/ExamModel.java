@@ -2,16 +2,18 @@ package cus1156_groupproject;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ExamModel{
 	
 	private FileWriter fw;
 	private PrintWriter pw;
 	private Question q;
-	private ArrayList<Question> questions;
+	private ArrayList<Question> questions = new ArrayList<Question>();;
 	private int questionCount;
 	
 	public String verifyUser(String user, String pass){
+		
 		if(user.equals("professor") && pass.equals("teachersonly")){
 			return "professor";
 		}
@@ -36,8 +38,8 @@ public class ExamModel{
 	}
 	
 	public void addQuestion(String question, String answer1, String answer2, String answer3){
-		q = new Question(question, answer1, answer2, answer3);
-		questions.add(q);
+		questions.add(new Question (question, answer1, answer2, answer3));
+		System.out.println("Added Question");
 	}
 	
 	public void randomize(){
@@ -48,15 +50,16 @@ public class ExamModel{
 	
 	public void printExam(){
 		questionCount = 1;
-		for(int i = 1; i <= questions.size(); i++){
-			pw.print("Question "+questionCount+":\n");
-			pw.println("A)"+questions.get(i-1).answer1);
-			pw.println("B)"+questions.get(i-1).answer2);
-			pw.println("C)"+questions.get(i-1).answer3+"\n\n");
+		for(int i = 0; i < questions.size(); i++){
+			pw.println("Question "+questionCount+": \n"+questions.get(i).question);
+			pw.println("A)"+questions.get(i).answer1);
+			pw.println("B)"+questions.get(i).answer2);
+			pw.println("C)"+questions.get(i).answer3);
+			pw.println();
+			questionCount++;
 		}
 		
 		System.out.println("Exam.txt has been created.");
-		System.out.println(fw);
 		
 		pw.close();
 	}
@@ -86,9 +89,9 @@ class Question {
 	}
 	
 	public static void randomizeAnswers(Question q){
-		for(int i = 1; i <= 3; i++){
+		for(int i = 1; i <= 5; i++){
 			randomNum = (int) Math.ceil(Math.random() * 3);
-			while(randomNum != i){
+			if(randomNum == 2){
 				temp1 = q.answer1;
 				temp2 = q.answer2;
 				temp3 = q.answer3;
@@ -97,6 +100,17 @@ class Question {
 				q.answer2 = temp3;
 				q.answer1 = temp2;
 			}
+			
+			if(randomNum == 3){
+				temp1 = q.answer2;
+				temp2 = q.answer3;
+				temp3 = q.answer1;
+				
+				q.answer3 = temp1;
+				q.answer2 = temp3;
+				q.answer1 = temp2;
+			}
+		
 		}
 	}
 }
